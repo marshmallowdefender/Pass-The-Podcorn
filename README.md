@@ -15,12 +15,29 @@ Pass the Podcorn is a podcast review app where users can listen to trailers for 
 ## Code Example
 ```javascript
 
+const db =  require('../models/podcasts');
+
+function showAll(req, res) {
+    db.allPodcasts()
+    .then(podcasts => {
+        res.json({
+            message: 'ok',
+            data: { podcasts },
+        });
+    })
+    .catch(err => {
+        console.log(err);
+        res.status(400).json({message: '400', err});
+    });
+};
+
 
 ```
 
 
 
-## Gameshots & Wireframes
+## Appshots & Wireframes
+![Wireframe](/wireframes/ERD.png)
 
 
 
