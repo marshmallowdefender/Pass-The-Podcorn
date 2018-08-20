@@ -1,7 +1,7 @@
 const db =  require('../models/reviews');
 
 function showAll(req, res) {
-    db.allPodReviews()
+    db.allPodReviews(req.params.id)
     .then(podReviews => {
         res.json({
             message: 'ok',

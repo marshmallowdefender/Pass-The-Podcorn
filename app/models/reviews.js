@@ -1,17 +1,18 @@
 const { db } = require('../config/conn');
 
-function allPodReviews() {
+function allPodReviews(id) {
     return db.query(`
     SELECT * 
     FROM reviews
-    `)
+    WHERE podcast_id = $1
+    `, id)
 };
 
 function onePodReview(id) {
     return db.one(`
     SELECT *
     FROM reviews
-    WHERE id = $1
+    WHERE review_id = $1
     `, id)
 }
 
