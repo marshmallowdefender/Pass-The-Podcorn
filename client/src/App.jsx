@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import CreatePodcast from './components/CreatePodcast';
-import CreateReview from './components/CreateReview';
 import PodcastIndex from './components/PodcastIndex';
 import { fetchPodcasts } from './services/api';
 import './App.css';
