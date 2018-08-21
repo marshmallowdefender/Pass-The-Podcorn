@@ -21,6 +21,7 @@ export function fetchPodcasts() {
       .then(resp => resp.json());
   }
   
+
   export function fetchReviews(podcast_id) {
     return fetch(`${BASE_URL}/reviews/podcast/${podcast_id}`)
       .then(resp => resp.json())

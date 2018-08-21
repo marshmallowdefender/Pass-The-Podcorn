@@ -22,6 +22,7 @@ componentDidMount() {
    fetchPodcasts()
   .then(data => this.setState({podcasts: data}));
 
+
   fetchReviews(1) 
     .then(data => this.setState({reviews: data}));
 
