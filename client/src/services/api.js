@@ -8,3 +8,12 @@ export function fetchPodcasts() {
       });
   }
   
+  export function fetchReviews() {
+    return fetch(`${BASE_URL}/podcasts/podcast/:id`)
+      .then(resp => resp.json())
+      .catch(err => {
+        throw Error(err);
+      })
+  }
+
+

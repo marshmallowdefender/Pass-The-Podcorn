@@ -1,20 +1,25 @@
 import React, { Component } from 'react';
 import PodcastIndex from './components/PodcastIndex';
 import './App.css';
-import { fetchPodcasts } from './services/api';
+import { fetchPodcasts, fetchReviews } from './services/api';
  
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      podcasts: []
+      podcasts: [],
+      reviews: [],
     }
   }
 
 componentDidMount() {
    fetchPodcasts()
   .then(data => this.setState({podcasts: data}));
+
+  fetchReviews() 
+    .then(data => this.setState({reviews: data}));
+
 }
 
   render() {
