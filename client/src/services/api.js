@@ -6,7 +6,9 @@ export function fetchPodcasts() {
       .catch(err => {
         throw Error(err);
       });
-  }
+  };
+
+
 
   export function savePodcast(podcast) {
     const opts = {
@@ -27,6 +29,6 @@ export function fetchPodcasts() {
       .catch(err => {
         throw Error(err);
       })
-  }
+  };
 
 
