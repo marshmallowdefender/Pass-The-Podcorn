@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import CreatePodcast from './components/CreatePodcast';
 
 import PodcastIndex from './components/PodcastIndex';
-import { fetchPodcasts, savePodcast } from './services/api';
+import { fetchPodcasts, savePodcast, fetchReviews } from './services/api';
 import './App.css';
 
 class App extends Component {
@@ -22,7 +22,7 @@ componentDidMount() {
    fetchPodcasts()
   .then(data => this.setState({podcasts: data}));
 
-  fetchReviews() 
+  fetchReviews(1) 
     .then(data => this.setState({reviews: data}));
 
 }
@@ -34,6 +34,8 @@ componentDidMount() {
       .then(data => this.setState({podcasts:data}));
   })
   }
+
+
 
 render() {
   return (
