@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import CreatePodcast from './components/CreatePodcast';
 
 import PodcastIndex from './components/PodcastIndex';
-import { fetchPodcasts } from './services/api';
+import { fetchPodcasts, savePodcast } from './services/api';
 import './App.css';
 
 class App extends Component {
@@ -15,19 +15,31 @@ class App extends Component {
       podcasts: [],
       reviews: []
     }
+    this.onSubmit = this.onSubmit.bind(this)
   }
 
-  componentDidMount() {
-    fetchPodcasts()
-      .then(data => this.setState({podcasts:data}));
+componentDidMount() {
+   fetchPodcasts()
+  .then(data => this.setState({podcasts: data}));
 
+  fetchReviews() 
+    .then(data => this.setState({reviews: data}));
+
+}
+
+  onSubmit(podcast) {
+    savePodcast(podcast)
+    .then(data => {
+      fetchPodcasts()
+      .then(data => this.setState({podcasts:data}));
+  })
   }
 
 render() {
   return (
     <div className="App">
     <PodcastIndex podcasts={this.state.podcasts} />
-    <CreatePodcast />
+    <CreatePodcast onSubmit={this.onSubmit}/>
     </div>
   );
 }
