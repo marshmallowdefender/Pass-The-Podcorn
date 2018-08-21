@@ -3,7 +3,9 @@ import CreatePodcast from './components/CreatePodcast';
 import EditPodcast from './components/EditPodcast';
 
 import PodcastIndex from './components/PodcastIndex';
+
 import { fetchPodcasts, savePodcast, fetchReviews, updatePodcast, fetchOnePodcast } from './services/api';
+
 import './App.css';
 
 class App extends Component {
@@ -21,9 +23,10 @@ class App extends Component {
     this.updatePodcast =  this.updatePodcast.bind(this)
   }
 
-  componentDidMount() {
-    fetchPodcasts()
-      .then(data => this.setState({podcasts:data}));
+componentDidMount() {
+   fetchPodcasts()
+  .then(data => this.setState({podcasts: data}));
+
 
     // fetchReviews(1) 
     // .then(data => this.setState({reviews: data}));
@@ -44,6 +47,7 @@ class App extends Component {
   }
 
 
+
   
 
   onSubmit(podcast) {
@@ -54,6 +58,8 @@ class App extends Component {
       .then(data => this.setState({podcasts:data}));
   })
   }
+
+
 
 render() {
   return (
