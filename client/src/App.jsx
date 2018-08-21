@@ -6,7 +6,13 @@ import EditPodcast from './components/EditPodcast';
 =======
 >>>>>>> upstream/master
 import PodcastIndex from './components/PodcastIndex';
+<<<<<<< HEAD
 import { fetchPodcasts, savePodcast, fetchReviews, updatePodcast, fetchOnePodcast } from './services/api';
+=======
+
+import { fetchPodcasts, savePodcast, fetchReviews, updatePodcast, fetchOnePodcast } from './services/api';
+
+>>>>>>> 6e388c13895e9aee0b7decb2182d25be229af624
 import './App.css';
 
 class App extends Component {
@@ -35,6 +41,7 @@ componentDidMount() {
    fetchPodcasts()
   .then(data => this.setState({podcasts: data}));
 
+<<<<<<< HEAD
 
     // fetchReviews(1) 
     // .then(data => this.setState({reviews: data}));
@@ -44,6 +51,9 @@ componentDidMount() {
   }
 
 <<<<<<< HEAD
+=======
+
+>>>>>>> 6e388c13895e9aee0b7decb2182d25be229af624
     // fetchReviews(1) 
     // .then(data => this.setState({reviews: data}));
 
@@ -63,6 +73,10 @@ componentDidMount() {
       });
     })
   }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 6e388c13895e9aee0b7decb2182d25be229af624
 
 
 <<<<<<< HEAD
