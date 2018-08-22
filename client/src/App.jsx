@@ -17,10 +17,11 @@ class App extends Component {
       createModal: 'modal',
       selectedPodcast: ''
     }
-    this.createPodcast = this.createPodcast.bind(this)
-    this.toggleCreateModal =  this.toggleCreateModal.bind(this)
-    this.onSubmit = this.onSubmit.bind(this)
-    this.updatePodcast =  this.updatePodcast.bind(this)
+    this.createPodcast = this.createPodcast.bind(this);
+    this.toggleCreateModal =  this.toggleCreateModal.bind(this);
+    this.onSubmit = this.onSubmit.bind(this);
+    this.updatePodcast =  this.updatePodcast.bind(this);
+    this.getOnePodcast = this.getOnePodcast.bind(this);
   }
 
 componentDidMount() {
@@ -34,9 +35,7 @@ componentDidMount() {
      //.then(data =>  this.setState({podcasts:data}));
   }
 
-
-
-  updatePodcast(podcast) {
+  getOnePodcast(podcast) {
     fetchOnePodcast(podcast)
     .then(data => {
       this.setState({
@@ -46,8 +45,14 @@ componentDidMount() {
   }
 
 
-
-  
+  updatePodcast(podcast) {
+    updatePodcast(podcast)
+    .then(data => {
+      this.setState({
+        selectedPodcast:data
+      });
+    })
+  }
 
   onSubmit(podcast) {
     debugger
@@ -83,10 +88,10 @@ componentDidMount() {
 render() {
   return (
     <div className="App">
-    <PodcastIndex edit={this.updatePodcast} podcasts={this.state.podcasts} />
+    <PodcastIndex edit={this.getOnePodcast} podcasts={this.state.podcasts} />
     <CreatePodcast onSubmit={this.createPodcast} active={this.state.createModal} toggle={this.toggleCreateModal}/>
     {this.state.selectedPodcast ?
-    <EditPodcast podcast={this.state.selectedPodcast} onSubmit={this.updatePodcast}/>
+    <EditPodcast podcast={this.state.selectedPodcast} onSubmit={this.getOnePodcast} edit={this.updatePodcast}/>
     : null}
     </div>
   );
