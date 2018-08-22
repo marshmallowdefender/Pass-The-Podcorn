@@ -40,7 +40,6 @@ class App extends Component {
     this.searchBar = this.searchBar.bind(this);
   }
 
-
   componentDidMount() {
     fetchPodcasts()
       .then(data => this.setState({ podcasts: data }));
@@ -129,7 +128,6 @@ class App extends Component {
 
   render() {
     return (
-
       <div className="App main-grid">
         <Header />
         <CreatePodcast onSubmit={this.createPodcast} active={this.state.createModal} toggle={this.toggleCreateModal} />
@@ -139,8 +137,6 @@ class App extends Component {
         {this.state.selectedPodcast ?
           <EditPodcast podcast={this.state.selectedPodcast} onSubmit={this.updatePodcast} active={this.state.editModal} toggle={this.toggleEditModal}/>
           : null}
-
-     
   
     <Footer />
 
