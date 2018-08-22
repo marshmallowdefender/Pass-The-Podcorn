@@ -3,6 +3,7 @@ import CreatePodcast from './components/CreatePodcast';
 import Header from './components/Header';
 import EditPodcast from './components/EditPodcast';
 import PodcastIndex from './components/PodcastIndex';
+import ReviewIndex from './components/ReviewIndex';
 import { fetchPodcasts, savePodcast, fetchReviews, updatePodcast, fetchOnePodcast } from './services/api';
 import './App.css';
 import Footer from './components/Footer';
@@ -99,28 +100,29 @@ render() {
 
     <div className="App container-grid">
     <Header />
-    <PodcastIndex edit={this.updatePodcast} view={this.fetchAllReviews} podcasts={this.state.podcasts} />
+    <PodcastIndex edit={this.getOnePodcast} view={this.fetchAllReviews} podcasts={this.state.podcasts} />
+    <ReviewIndex reviews={this.state.reviews}/>
     <CreatePodcast onSubmit={this.createPodcast} active={this.state.createModal} toggle={this.toggleCreateModal}/>
     {this.state.selectedPodcast ?
     <EditPodcast podcast={this.state.selectedPodcast} onSubmit={this.getOnePodcast} edit={this.updatePodcast}/>
     : null}
 
-    <div class="container-grid aside-1 podcastDetails">
-        <h3 class="heading-2">Podcast Details<br/>
+    <div className="container-grid aside-1 podcastDetails">
+        <h3 className="heading-2">Podcast Details<br/>
         </h3>
-        <ul class="list-container">
-          <li class="list-item-container"></li>
-          <li class="list-item-container"></li>
-          <li class="list-item-container"></li>
+        <ul className="list-container">
+          <li className="list-item-container"></li>
+          <li className="list-item-container"></li>
+          <li className="list-item-container"></li>
         </ul>
     </div>
-    <div class="container-grid aside-2 reviews">
-        <h3 class="heading-3">Reviews<br/>
+    <div className="container-grid aside-2 reviews">
+        <h3 className="heading-3">Reviews<br/>
         </h3>
-        <ul class="list-container">
-          <li class="list-item-container"></li>
-          <li class="list-item-container"></li>
-          <li class="list-item-container"></li>
+        <ul className="list-container">
+          <li className="list-item-container"></li>
+          <li className="list-item-container"></li>
+          <li className="list-item-container"></li>
         </ul>
       </div>
     <Footer />
