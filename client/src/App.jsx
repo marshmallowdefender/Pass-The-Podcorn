@@ -80,6 +80,10 @@ class App extends Component {
     .then(data => {
       fetchPodcasts()
       .then(data => this.setState({ podcasts: data }));
+<<<<<<< HEAD
+=======
+      });
+>>>>>>> 346e169658d8ce5b7044886710a73300ea0c9ca3
     })
   }
 
@@ -138,6 +142,16 @@ class App extends Component {
           <li className="list-item-container"></li>
         </ul>
     </div>
+<<<<<<< HEAD
+=======
+    <div className="container-grid aside-2 reviews">
+        <h3 className="heading-3">Reviews<br/>
+        </h3>
+        <ul className="list-container">
+          <li className="list-item-container"></li>
+        </ul>
+      </div>
+>>>>>>> 346e169658d8ce5b7044886710a73300ea0c9ca3
     <Footer />
 
     {/* {<ReviewList reviews={this.state.reviews} handleDeleteClick={this.handleDeleteClick} /> } */}
