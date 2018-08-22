@@ -3,7 +3,7 @@ import CreatePodcast from './components/CreatePodcast';
 import Header from './components/Header';
 import EditPodcast from './components/EditPodcast';
 import PodcastIndex from './components/PodcastIndex';
-import { fetchPodcasts, savePodcast, fetchReviews, updatePodcast, fetchOnePodcast } from './services/api';
+import { fetchPodcasts, savePodcast, fetchReviews, updatePodcast, fetchOnePodcast, deletePodcast } from './services/api';
 import './App.css';
 import Footer from './components/Footer';
 
@@ -25,6 +25,7 @@ class App extends Component {
     this.onSubmit = this.onSubmit.bind(this)
     this.updatePodcast =  this.updatePodcast.bind(this);
     this.fetchAllReviews = this.fetchAllReviews.bind(this);
+    this.deletePodcast = this.deletePodcast.bind(this);
   }
 
 componentDidMount() {
@@ -41,6 +42,12 @@ componentDidMount() {
   }
 
 
+deletePodcast(id) {
+  deletePodcast(id)
+  .then(data => {
+    console.log('deleted');
+  })
+}
 
   updatePodcast(podcast) {
     fetchOnePodcast(podcast)
@@ -92,8 +99,9 @@ render() {
     <PodcastIndex edit={this.updatePodcast} view={this.fetchAllReviews} podcasts={this.state.podcasts} />
     <CreatePodcast onSubmit={this.createPodcast} active={this.state.createModal} toggle={this.toggleCreateModal}/>
     {this.state.selectedPodcast ?
-    <EditPodcast podcast={this.state.selectedPodcast} onSubmit={this.updatePodcast}/>
+    <EditPodcast podcast={this.state.selectedPodcast} deletePodcast={this.deletePodcast} onSubmit={this.updatePodcast}/>
     : null}
+
 
     <div class="container-grid aside-1 podcastDetails">
         <h3 class="heading-2">Podcast Details<br/>

@@ -12,7 +12,9 @@ export function fetchOnePodcast(id){
   return fetch(`${BASE_URL}/podcasts/${id}`)
   .then(resp => resp.json())
   .catch(err => {
+    console.log(err);
     throw Error(err);
+    
   });
 };
 
@@ -53,3 +55,10 @@ export function fetchOnePodcast(id){
   };
 
 
+  export function deletePodcast(podcast_id) {
+    return fetch(`${BASE_URL}/podcast/${podcast_id}`)
+    .then(resp => resp.json())
+    .catch(err => {
+      throw Error(err);
+    })
+  };

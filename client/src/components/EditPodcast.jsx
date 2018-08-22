@@ -16,6 +16,7 @@ import React, { Component } from 'react';
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.onClick = this.onClick.bind(this);
   }
 
   handleSubmit(evt) {
@@ -37,6 +38,11 @@ import React, { Component } from 'react';
     this.setState({
       [name]: value,
     });
+  }
+
+  onClick(evt) {
+    const id = evt.target.podcast_id
+    this.props.deletePodcast(id)
   }
 
   render() {
@@ -94,8 +100,9 @@ import React, { Component } from 'react';
             placeholder="Trailer url"
           />
           <input type="submit" value="Edit Podcast" />
-          <input type="submit" value="Delete Podcast" />
+
         </form>
+        <button onClick = {this.onClick}>Delete Podcast </button>
       </div>
     );
    }
