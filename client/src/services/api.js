@@ -54,8 +54,14 @@ export function fetchOnePodcast(id){
 
 
   export function deletePodcast(podcast_id) {
-    return fetch(`${BASE_URL}/podcast/${podcast_id}`)
-    .then(resp => resp.json())
+    const opts ={
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    }
+    return fetch(`${BASE_URL}/podcasts/${podcast_id}`, opts)
+    .then(resp => "deleted")
     .catch(err => {
       throw Error(err);
     })

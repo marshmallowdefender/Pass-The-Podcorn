@@ -18,6 +18,7 @@ class EditPodcast extends Component {
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.toggle =  this.toggle.bind(this);
+    this.delete = this.delete.bind(this);
   }
 
   componentDidUpdate(prevProps) {
@@ -55,6 +56,12 @@ class EditPodcast extends Component {
   toggle(e) {
     e.preventDefault();
     this.props.toggle();
+  }
+
+  delete(e) {
+    debugger
+    e.preventDefault();
+    this.props.delete(this.state.id)
   }
 
   handleChange(evt) {
@@ -144,7 +151,7 @@ class EditPodcast extends Component {
                   <footer className="modal-card-foot">
                     <button type="submit" value="Edit Podcast" className="button is-success">Save changes</button>
                     <button onClick={this.toggle} className="button">Cancel</button>
-                    <button className="button is-danger">Delete Podcast</button>
+                    <button onClick={this.delete} className="button is-danger">Delete Podcast</button>
                   </footer>
                 </form>
               </div>
