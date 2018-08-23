@@ -3,12 +3,8 @@ import CreatePodcast from './components/CreatePodcast';
 import Header from './components/Header';
 import EditPodcast from './components/EditPodcast';
 import PodcastIndex from './components/PodcastIndex';
-<<<<<<< HEAD
-import { fetchPodcasts, savePodcast, fetchReviews, updatePodcast, fetchOnePodcast, deletePodcast } from './services/api';
-=======
 import ReviewIndex from './components/ReviewIndex';
 import { fetchPodcasts, savePodcast, fetchReviews, updatePodcast, fetchOnePodcast } from './services/api';
->>>>>>> upstream/master
 import './App.css';
 import Footer from './components/Footer';
 
@@ -34,14 +30,10 @@ class App extends Component {
     this.onSubmit = this.onSubmit.bind(this)
     this.getOnePodcast = this.getOnePodcast.bind(this);
     this.fetchAllReviews = this.fetchAllReviews.bind(this);
-<<<<<<< HEAD
-    this.deletePodcast = this.deletePodcast.bind(this);
-=======
     this.updatePodcast = this.updatePodcast.bind(this);
     this.toggleEditModal =  this.toggleEditModal.bind(this);
     this.genreFilter = this.genreFilter.bind(this);
     this.searchBar = this.searchBar.bind(this);
->>>>>>> upstream/master
   }
 
 
@@ -77,20 +69,11 @@ class App extends Component {
       })
   }
 
-<<<<<<< HEAD
-deletePodcast(id) {
-  deletePodcast(id)
-  .then(data => {
-    console.log('deleted');
-  })
-}
-=======
   genreFilter(genre) {
     this.setState({
       selectedGenre: genre
     })
   }
->>>>>>> upstream/master
 
   updatePodcast(podcast) {
     updatePodcast(podcast)
@@ -98,7 +81,6 @@ deletePodcast(id) {
       fetchPodcasts()
       .then(data => this.setState({ podcasts: data }));
       });
-    })
   }
 
 
@@ -140,20 +122,6 @@ deletePodcast(id) {
 
   render() {
     return (
-
-<<<<<<< HEAD
-    <div className="App container-grid">
-    <Header />
-    <PodcastIndex edit={this.updatePodcast} view={this.fetchAllReviews} podcasts={this.state.podcasts} />
-    <CreatePodcast onSubmit={this.createPodcast} active={this.state.createModal} toggle={this.toggleCreateModal}/>
-    {this.state.selectedPodcast ?
-    <EditPodcast podcast={this.state.selectedPodcast} deletePodcast={this.deletePodcast} onSubmit={this.updatePodcast}/>
-    : null}
-
-
-    <div class="container-grid aside-1 podcastDetails">
-        <h3 class="heading-2">Podcast Details<br/>
-=======
       <div className="App main-grid">
         <Header />
         <CreatePodcast onSubmit={this.createPodcast} active={this.state.createModal} toggle={this.toggleCreateModal} />
@@ -165,7 +133,6 @@ deletePodcast(id) {
 
         <div className="container-grid aside-1 podcastDetails">
         <h3 className="heading-2">Podcast Details<br/>
->>>>>>> upstream/master
         </h3>
         <ul className="list-container">
           <li className="list-item-container"></li>
@@ -179,8 +146,6 @@ deletePodcast(id) {
         </ul>
       </div>
     <Footer />
-
-    {/* {<ReviewList reviews={this.state.reviews} handleDeleteClick={this.handleDeleteClick} /> } */}
       </div>
     );
   }

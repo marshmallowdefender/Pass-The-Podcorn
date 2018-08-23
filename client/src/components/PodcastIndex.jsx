@@ -25,11 +25,6 @@ class PodcastIndex extends Component {
     
     let afterSearch = filteredList.filter(podcast => podcast.title.toLowerCase().includes(this.state.search.toLowerCase()));
 
-<<<<<<< HEAD
-    </div>
-    )
-    }
-=======
     return (
       <div className="container-grid main podcasts">
         <h2 class="heading-1">Podcasts</h2>
@@ -43,7 +38,6 @@ class PodcastIndex extends Component {
     )
   }
 }
->>>>>>> upstream/master
 
 export default PodcastIndex;
 

@@ -17,9 +17,6 @@ class EditPodcast extends Component {
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-<<<<<<< HEAD
-    this.onClick = this.onClick.bind(this);
-=======
     this.toggle =  this.toggle.bind(this);
   }
 
@@ -37,7 +34,6 @@ class EditPodcast extends Component {
         id: this.props.podcast.id
       })
     }
->>>>>>> upstream/master
   }
 
   handleSubmit(evt) {
@@ -76,64 +72,6 @@ class EditPodcast extends Component {
   render() {
     return (
       <div>
-<<<<<<< HEAD
-        <h2>Edit Podcast</h2>
-        <form onSubmit={this.handleSubmit}>
-          <input
-            type="text"
-            name="title"
-            value={this.state.title} 
-            onChange={this.handleChange} 
-            placeholder="Title"
-          />
-          <input
-            type="text"
-            name="creator"
-            value={this.state.creator} 
-            onChange={this.handleChange} 
-            placeholder="Creator"
-          />
-          <input
-            type="text"
-            name="genre"
-            value={this.state.genre} 
-            onChange={this.handleChange} 
-            placeholder="Genre"
-          />
-          <input
-            type="text"
-            name="episodes"
-            value={this.state.episodes} 
-            onChange={this.handleChange} 
-            placeholder="Episodes"
-          />
-          <input
-            type="text"
-            name="description"
-            value={this.state.description} 
-            onChange={this.handleChange} 
-            placeholder="Description"
-          />
-          <input
-            type="text"
-            name="poster"
-            value={this.state.poster_url} 
-            onChange={this.handleChange} 
-            placeholder="Poster url"
-          />
-          <input
-            type="text"
-            name="trailer"
-            value={this.state.trailer_url} 
-            onChange={this.handleChange} 
-            placeholder="Trailer url"
-          />
-          <input type="submit" value="Edit Podcast" />
-
-        </form>
-        <button onClick = {this.onClick}>Delete Podcast </button>
-      </div>
-=======
         <div className={this.props.active}>
           <div className="modal-background"></div>
           <div className="modal-card">
@@ -213,7 +151,6 @@ class EditPodcast extends Component {
           </div>
         </div>
       </div >
->>>>>>> upstream/master
     );
   }
 }
