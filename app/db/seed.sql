@@ -213,8 +213,8 @@ INSERT INTO podcasts (title, creator, genre, episodes, description, poster_url, 
     'WNYC',
     'General',
     000,
-    'Full Stack Developers Wes Bos and Scott Tolinski dive deep into web development topics, explaining how they work and talking about their own experiences. They cover from JavaScript frameworks like React, to the latest advancements in CSS to simplifying web tooling.',    'https://syntax.fm/'
-    'https://is1-ssl.mzstatic.com/image/thumb/Music117/v4/40/e5/ef/40e5ef3c-f5b9-20df-14cc-e5c38d50a8da/source/600x600bb.jpg',
+    'Full Stack Developers Wes Bos and Scott Tolinski dive deep into web development topics, explaining how they work and talking about their own experiences. They cover from JavaScript frameworks like React, to the latest advancements in CSS to simplifying web tooling.',    
+    'https://pbs.twimg.com/media/DlOJ8aoWwAAqfSJ.jpg',
     'https://syntax.fm/'
 );
 
