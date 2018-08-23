@@ -42,6 +42,7 @@ class CreateReview extends Component {
                         <section className="modal-card-body">
                             <div>
                                 <form onSubmit={this.handleSubmit}>
+                                <label>Username:</label>
                                     <input
                                         type="text"
                                         name="username"
@@ -51,6 +52,7 @@ class CreateReview extends Component {
                                         placeholder="Username"
                                     />
                                     <br />
+                                    <label>Review:</label>
                                     <input
                                         type="text"
                                         name="content"
