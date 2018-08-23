@@ -6,7 +6,7 @@ import PodcastIndex from './components/PodcastIndex';
 import ReviewIndex from './components/ReviewIndex';
 import PodcastDetails from './components/PodcastDetails';
 import CreateReview from './components/CreateReview';
-import { fetchPodcasts, savePodcast, fetchReviews, updatePodcast, fetchOnePodcast, saveReview } from './services/api';
+import { fetchPodcasts, savePodcast, fetchReviews, updatePodcast, fetchOnePodcast, saveReview, deletePodcast } from './services/api';
 import './App.css';
 import Footer from './components/Footer';
 
@@ -40,6 +40,7 @@ class App extends Component {
     this.toggleCreateModal = this.toggleCreateModal.bind(this);
     this.toggleCreateReviewModal = this.toggleCreateReviewModal.bind(this);
     this.toggleEditModal = this.toggleEditModal.bind(this);
+    this.deletePodcast = this.deletePodcast.bind(this);
   }
 
 
@@ -114,7 +115,20 @@ class App extends Component {
         fetchPodcasts()
           .then(data => this.setState({ podcasts: data }));
       });
-  }
+    }
+
+    deletePodcast(id) {
+      deletePodcast(id)
+      .then(data => {
+        fetchPodcasts()
+        .then(data => this.setState({ podcasts: data }));
+        });
+      }
+
+    searchBar(data) {
+      this.setState({
+        searchBar: data
+      })
 
   onSubmit(podcast) {
     savePodcast(podcast)
@@ -173,7 +187,7 @@ class App extends Component {
         <PodcastIndex edit={this.getOnePodcast} view={this.fetchAllReviews} podcasts={this.state.podcasts} filter={this.state.selectedGenre} filterFunction={this.genreFilter} search={this.searchBar} />
         <ReviewIndex reviews={this.state.reviews} create={this.toggleCreateReviewModal} />
         <PodcastDetails podcast={this.state.podcastDetails} edit={this.getOnePodcast} /> {this.state.selectedPodcast ?
-          <EditPodcast podcast={this.state.selectedPodcast} onSubmit={this.updatePodcast} active={this.state.editModal} toggle={this.toggleEditModal} />
+          <EditPodcast podcast={this.state.selectedPodcast} onSubmit={this.updatePodcast} active={this.state.editModal} toggle={this.toggleEditModal} delete={this.deletePodcast} />
           : null}
         <Footer />
       </div>

@@ -10,10 +10,11 @@ export function fetchPodcasts() {
 
 export function fetchOnePodcast(id) {
   return fetch(`${BASE_URL}/podcasts/${id}`)
-    .then(resp => resp.json())
-    .catch(err => {
-      throw Error(err);
-    });
+  .then(resp => resp.json())
+  .catch(err => {
+    console.log(err);
+    throw Error(err);
+  });
 };
 
 
@@ -68,3 +69,16 @@ export function updatePodcast(podcast) {
 
 
 
+  export function deletePodcast(podcast_id) {
+    const opts ={
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    }
+    return fetch(`${BASE_URL}/podcasts/${podcast_id}`, opts)
+    .then(resp => "deleted")
+    .catch(err => {
+      throw Error(err);
+    })
+  };
