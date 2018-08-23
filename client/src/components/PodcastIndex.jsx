@@ -24,14 +24,13 @@ class PodcastIndex extends Component {
       })
     
     let afterSearch = filteredList.filter(podcast => podcast.title.toLowerCase().includes(this.state.search.toLowerCase()));
-
     return (
       <div className="container-grid main podcasts">
         <h2 className="heading-1">Podcasts</h2>
         <SortButtons search={this.handleChange} filterFunction={this.props.filterFunction} searchBar={this.state.search} />
         {afterSearch.map(podcast => (
           <div className="list-container" key={podcast.id}>
-            <img src={podcast.poster_url} alt="Podcast Poster"/><a onClick={(e) => this.props.view(podcast.id, [podcast])}><p className='podcastList' key={podcast.id}>{podcast.title} {podcast.creator}</p></a>       
+            <img src={podcast.poster_url} alt="Podcast Poster"/><a onClick={(e) => this.props.view(podcast.id, [podcast])}><p className='podcastList' key={podcast.id}>{podcast.title} {podcast.creator}</p></a>
           </div>))}
       </div>
     )
