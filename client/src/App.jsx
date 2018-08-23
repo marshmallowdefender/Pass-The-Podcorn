@@ -4,7 +4,9 @@ import Header from './components/Header';
 import EditPodcast from './components/EditPodcast';
 import PodcastIndex from './components/PodcastIndex';
 import ReviewIndex from './components/ReviewIndex';
+import PodcastDetails from './components/PodcastDetails';
 import { fetchPodcasts, savePodcast, fetchReviews, updatePodcast, fetchOnePodcast } from './services/api';
+
 import './App.css';
 import Footer from './components/Footer';
 
@@ -17,12 +19,12 @@ class App extends Component {
       selectedReview: '',
       podcasts: [],
       reviews: [],
+      selectedPodcast: '',
       createModal: 'modal',
       editModal: 'modal',
-      selectedPodcast: '',
       selectedGenre: 'All',
       searchBar: '',
-
+      podcastDetails: [{}],
     }
 
     this.createPodcast = this.createPodcast.bind(this)
@@ -36,15 +38,19 @@ class App extends Component {
     this.searchBar = this.searchBar.bind(this);
   }
 
-
   componentDidMount() {
     fetchPodcasts()
       .then(data => this.setState({ podcasts: data }));
   }
 
-  fetchAllReviews(id) {
+  fetchAllReviews(id, title) {
     fetchReviews(id)
-      .then(data => {this.setState({ reviews: data }) });
+      .then(data => {
+        this.setState({ 
+        reviews: data,
+        podcastDetails: title
+      })}
+     );
   }
   
   toggleEditModal() {
@@ -81,15 +87,18 @@ class App extends Component {
       fetchPodcasts()
       .then(data => this.setState({ podcasts: data }));
       });
+<<<<<<< HEAD
   }
 
+=======
+    }
+>>>>>>> upstream/master
 
     searchBar(data) {
       this.setState({
         searchBar: data
       })
     }
-
 
   onSubmit(podcast) {
     savePodcast(podcast)
@@ -119,7 +128,7 @@ class App extends Component {
           .then(data => this.setState({ podcasts: data }));
       })
   }
-
+  
   render() {
     return (
       <div className="App main-grid">
@@ -127,24 +136,10 @@ class App extends Component {
         <CreatePodcast onSubmit={this.createPodcast} active={this.state.createModal} toggle={this.toggleCreateModal} />
         <PodcastIndex edit={this.getOnePodcast} view={this.fetchAllReviews} podcasts={this.state.podcasts} filter={this.state.selectedGenre} filterFunction={this.genreFilter} search={this.searchBar}/>
         <ReviewIndex reviews={this.state.reviews}/>
+        <PodcastDetails podcast={this.state.podcastDetails} edit={this.getOnePodcast} />
         {this.state.selectedPodcast ?
           <EditPodcast podcast={this.state.selectedPodcast} onSubmit={this.updatePodcast} active={this.state.editModal} toggle={this.toggleEditModal}/>
           : null}
-
-        <div className="container-grid aside-1 podcastDetails">
-        <h3 className="heading-2">Podcast Details<br/>
-        </h3>
-        <ul className="list-container">
-          <li className="list-item-container"></li>
-        </ul>
-    </div>
-    <div className="container-grid aside-2 reviews">
-        <h3 className="heading-3">Reviews<br/>
-        </h3>
-        <ul className="list-container">
-          <li className="list-item-container"></li>
-        </ul>
-      </div>
     <Footer />
       </div>
     );
